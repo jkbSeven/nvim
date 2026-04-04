@@ -58,16 +58,16 @@ return {
                     },
                 },
 
-                max_width = nil,
-                max_height = nil,
-                max_width_window_percentage = nil,
-                max_height_window_percentage = 50,
+                max_width = 100,
+                max_height = 12,
+                max_height_window_percentage = math.huge,
+                max_width_window_percentage = math.huge,
 
                 scale_factor = 1.0,
 
                 -- toggles images when windows are overlapped
-                window_overlap_clear_enabled = false,
-                window_overlap_clear_ft_ignore = { "cmp_menu", "cmp_docs", "snacks_notif", "scrollview", "scrollview_sign" },
+                window_overlap_clear_enabled = true,
+                window_overlap_clear_ft_ignore = { "cmp_menu", "cmp_docs", "" },
 
                 -- auto show/hide images when the editor gains/looses focus
                 editor_only_render_when_focused = false,
