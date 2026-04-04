@@ -4,10 +4,14 @@ return {
 
         config = function()
             require("cloak").setup({
+
                 enabled = true,
+
                 cloak_character = "*",
+
                 -- The applied highlight group (colors) on the cloaking, see `:h highlight`.
                 highlight_group = "Comment",
+
                 patterns = {
                     {
                         -- Match any file starting with ".env".
@@ -15,6 +19,7 @@ return {
                         file_pattern = {
                             ".env*",
                         },
+
                         -- Match an equals sign and any character after it.
                         -- This can also be a table of patterns to cloak,
                         -- example: cloak_pattern = { ":.+", "-.+" } for yaml files.
@@ -22,7 +27,10 @@ return {
                     },
                 },
             })
+
             vim.keymap.set("n", "<leader>cp", vim.cmd.CloakPreviewLine)
+            vim.keymap.set("n", "<leader>cd", vim.cmd.CloakDisable)
+
         end
     },
 }
