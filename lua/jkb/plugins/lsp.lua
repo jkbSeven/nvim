@@ -33,8 +33,14 @@ return {
             on_attach = on_attach,
         })
 
+        vim.lsp.config("pyright", {
+            capabilities = capabilities,
+            on_attach = on_attach,
+        })
+
         vim.lsp.enable({
             "lua_ls",
+            "pyright",
         })
 
         local cmp_select = { behavior = cmp.SelectBehavior.Select }
