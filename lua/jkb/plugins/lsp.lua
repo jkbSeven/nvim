@@ -38,9 +38,31 @@ return {
             on_attach = on_attach,
         })
 
+        vim.lsp.config("clangd", {
+            capabilities = capabilities,
+            on_attach = on_attach,
+
+            cmd = {
+                "clangd",
+                "--background-index",
+                "--clang-tidy",
+                "--offset-encoding=utf-8"
+            },
+
+            filetypes = { "c", "cpp" },
+
+            root_markers = {
+                ".clangd",
+                "compile_command.json",
+                "compile_flags.txt",
+                ".git",
+            },
+        })
+
         vim.lsp.enable({
             "lua_ls",
             "pyright",
+            "clangd",
         })
 
         local cmp_select = { behavior = cmp.SelectBehavior.Select }
