@@ -59,10 +59,16 @@ return {
             },
         })
 
+        vim.lsp.config("nil_ls", {
+            capabilities = capabilities,
+            on_attach = on_attach,
+        })
+
         vim.lsp.enable({
             "lua_ls",
             "pyright",
             "clangd",
+            "nil_ls",
         })
 
         local cmp_select = { behavior = cmp.SelectBehavior.Select }
