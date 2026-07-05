@@ -24,8 +24,13 @@ return {
             vim.keymap.set("n", "<leader>vrr", vim.lsp.buf.references, opts)
             vim.keymap.set("n", "<leader>vrn", vim.lsp.buf.rename, opts)
             vim.keymap.set("i", "<C-h>", vim.lsp.buf.signature_help, opts)
-            vim.keymap.set("n", "[d", vim.diagnostic.goto_prev, opts)
-            vim.keymap.set("n", "]d", vim.diagnostic.goto_next, opts)
+
+            -- goto_prev and goto_next are marked as depracated
+            -- "[d" and "]d" defualt to vim.diagnostic.jump, hence commenting this out
+            -- had to set `vim.diagnostic.config({ jump = { float = true }})` below
+            --
+            -- vim.keymap.set("n", "[d", vim.diagnostic.goto_prev, opts)
+            -- vim.keymap.set("n", "]d", vim.diagnostic.goto_next, opts)
         end
 
         vim.lsp.config("lua_ls", {
@@ -88,6 +93,7 @@ return {
 
         vim.diagnostic.config({
             update_in_insert = false,
+            jump = { float = true },
             float = {
                 focusable = false,
                 style = "minimal",
